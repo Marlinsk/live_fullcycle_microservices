@@ -5,6 +5,16 @@ import Registry from "../../infra/registry/Registry";
 import EventRepository from "../repository/EventRepository";
 import TicketRepository from "../repository/TicketRepository";
 
+type Input = {
+	eventId: string,
+	email: string,
+	creditCardToken: string
+}
+
+type Output = {
+	ticketId: string,
+}
+
 export default class PurchaseTicket {
 	eventRepository: EventRepository;
 	ticketRepository: TicketRepository;
@@ -26,14 +36,4 @@ export default class PurchaseTicket {
 			ticketId: ticket.ticketId
 		}
 	}
-}
-
-type Input = {
-	eventId: string,
-	email: string,
-	creditCardToken: string
-}
-
-type Output = {
-	ticketId: string,
 }

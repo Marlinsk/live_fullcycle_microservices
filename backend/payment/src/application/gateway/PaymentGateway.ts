@@ -1,7 +1,3 @@
-export default interface PaymentGateway {
-	createTransaction (input: Input): Promise<Output>;
-}
-
 export type Input = {
 	email: string,
 	creditCardToken: string,
@@ -11,4 +7,8 @@ export type Input = {
 export type Output = {
 	tid: string,
 	status: string,
+}
+
+export default interface PaymentGateway {
+	createTransaction (input: Input): Promise<Output>;
 }

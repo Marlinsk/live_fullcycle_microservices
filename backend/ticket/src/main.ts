@@ -6,10 +6,13 @@ import EventRepositoryDatabase from "./infra/repository/EventRepositoryDatabase"
 import RabbitMQAdapter from "./infra/queue/RabbitMQAdapter";
 import QueueController from "./infra/queue/QueueController";
 import ApproveTicket from "./application/usecase/ApproveTicket";
+import { initialData } from "./initial.data";
 
 async function main () {
 	const app = express();
 	app.use(express.json());
+	initialData();
+	
 	const queue = new RabbitMQAdapter();
 	await queue.connect();
 	const registry = new Registry();
@@ -24,7 +27,9 @@ async function main () {
 		res.json(output);
 	});
 	
-	app.listen(3000);
+	app.listen(3000, () => {
+		console.log(`Server starting 🚀 http://localhost:${3000}`);
+	});
 }
 
 main();

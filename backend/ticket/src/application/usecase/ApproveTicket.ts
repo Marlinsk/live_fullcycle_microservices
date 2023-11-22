@@ -1,6 +1,10 @@
 import Registry from "../../infra/registry/Registry";
 import TicketRepository from "../repository/TicketRepository";
 
+type Input = {
+	ticketId: string
+}
+
 export default class ApproveTicket {
 	ticketRepository: TicketRepository;
 
@@ -14,8 +18,4 @@ export default class ApproveTicket {
 		ticket.approve();
 		await this.ticketRepository.update(ticket);
 	}
-}
-
-type Input = {
-	ticketId: string
 }
