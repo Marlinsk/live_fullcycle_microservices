@@ -1,5 +1,4 @@
 export default class PaymentApproved {
 
-	constructor (readonly ticketId: string) {
-	}
+	constructor (readonly ticketId: string) {}
 }

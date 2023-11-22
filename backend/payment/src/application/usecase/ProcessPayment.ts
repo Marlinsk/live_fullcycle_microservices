@@ -5,6 +5,14 @@ import Registry from "../../infra/registry/Registry";
 import PaymentGateway from "../gateway/PaymentGateway";
 import TransactionRepository from "../repository/TransactionRepository";
 
+type Input = {
+	ticketId: string,
+	eventId: string,
+	email: string,
+	price: number,
+	creditCardToken: string
+}
+
 export default class ProcessPayment {
 	transactionRepository: TransactionRepository;
 	paymentGateway: PaymentGateway;
@@ -26,18 +34,4 @@ export default class ProcessPayment {
 		}
 		
 	}
-}
-
-type Input = {
-	ticketId: string,
-	eventId: string,
-	email: string,
-	price: number,
-	creditCardToken: string
-}
-
-type Output = {
-	status: string,
-	tid: string,
-	price: number
 }

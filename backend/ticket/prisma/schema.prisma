@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model event {
+  event_id    String  @id
+  description String
+  price       Decimal
+  capacity    Int
+}
+
+model ticket {
+  ticket_id String @id
+  event_id  String
+  email     String
+  status    String
+}
+
+model transaction {
+  transaction_id String  @id
+  ticket_id      String
+  event_id       String
+  tid            String
+  price          Decimal
+  status         String
+}
