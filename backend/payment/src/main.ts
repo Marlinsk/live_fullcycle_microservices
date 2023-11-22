@@ -14,7 +14,7 @@ async function main () {
 	registry.provide("queue", queue);
 	registry.provide("processPayment", new ProcessPayment(registry));
 	new QueueController(registry);
-	console.log(`Server is working 🚀`);
+	console.log(`Server is running 🚀`);
 }
 
 main();
